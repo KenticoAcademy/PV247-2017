@@ -3,6 +3,7 @@ import {
     DragSource,
     DropTarget
 } from 'react-dnd';
+import { EditorState } from 'draft-js';
 import { TodoListBarItem as TodoListBarItemComponent } from '../../components/todo-list/TodoListBarItem.jsx';
 
 const todoItemDragSourceSpecs = {
@@ -51,7 +52,7 @@ DndTodoListBarItem.propTypes = {
     item: PropTypes.shape({
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        description: PropTypes.string
+        description: PropTypes.instanceOf(EditorState)
     }).isRequired,
     expandDisabled: PropTypes.bool,
     reorderDisabled: PropTypes.bool,

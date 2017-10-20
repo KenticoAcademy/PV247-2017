@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { EditorState } from 'draft-js';
 import {
     FormPane,
     ButtonRow
@@ -12,7 +13,7 @@ export class TodoListEditedItem extends React.PureComponent {
         item: PropTypes.shape({
             id: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
-            description: PropTypes.string,
+            description: PropTypes.instanceOf(EditorState).isRequired,
         }).isRequired,
         submitDisabled: PropTypes.bool,
         submitButtonText: PropTypes.string.isRequired,
@@ -64,6 +65,8 @@ export class TodoListEditedItem extends React.PureComponent {
                             <RichTextEditor
                                 className="form-control"
                                 id="description"
+                                editorState={this.props.item.description}
+                                onChange={this.props.onDescriptionChange}
                             />
                         </div>
                         <ButtonRow>

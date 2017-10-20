@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { EditorState } from 'draft-js';
 import {
     ItemBar,
     TitlePane,
@@ -58,7 +59,7 @@ TodoListBarItem.propTypes = {
     item: PropTypes.shape({
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        description: PropTypes.string
+        description: PropTypes.instanceOf(EditorState)
     }).isRequired,
     expandDisabled: PropTypes.bool,
     reorderDisabled: PropTypes.bool,

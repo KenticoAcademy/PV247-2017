@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { EditorState } from 'draft-js';
 import { TodoListEditedItem as TodoListEditedItemComponent } from '../../components/todo-list/TodoListEditedItem.jsx';
 
 export class TodoListEditedItem extends React.PureComponent {
@@ -7,7 +8,7 @@ export class TodoListEditedItem extends React.PureComponent {
         item: PropTypes.shape({
             id: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
-            description: PropTypes.string
+            description: PropTypes.instanceOf(EditorState)
         }).isRequired,
         submitButtonText: PropTypes.string.isRequired,
         onCancel: PropTypes.func.isRequired,
@@ -41,13 +42,13 @@ export class TodoListEditedItem extends React.PureComponent {
         }));
     };
 
-    _onDescriptionChange = (event) => {
-        const value = event.target.value;
+    _onDescriptionChange = (editorState) => {
+        // const value = event.target.value;
 
         this.setState((previousState) => ({
             editedItem: {
                 ...previousState.editedItem,
-                description: value
+                description: editorState // value
             }
         }));
     };
