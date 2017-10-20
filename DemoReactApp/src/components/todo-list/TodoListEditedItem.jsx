@@ -6,7 +6,8 @@ import {
     ButtonRow
 } from './TodoListEditedItem.styles';
 import { ItemPane } from './TodoListItem.styles';
-import { RichTextEditor } from '../../containers/todo-list/rich-text/RichTextEditor.jsx';
+// import { RichTextEditor } from '../../containers/todo-list/rich-text/RichTextEditor.jsx';
+import { TextboxWithSuggestions } from '../../containers/todo-list/TextboxWithSuggestions.jsx';
 
 export class TodoListEditedItem extends React.PureComponent {
     static propTypes = {
@@ -61,10 +62,15 @@ export class TodoListEditedItem extends React.PureComponent {
                                       value={this.props.item.description}
                                       onChange={this.props.onDescriptionChange}
                                       onKeyDown={this._handleEscKey}
-                            />*/}
+                            />
                             <RichTextEditor
                                 className="form-control"
                                 id="description"
+                                editorState={this.props.item.description}
+                                onChange={this.props.onDescriptionChange}
+                            /> */}
+                            <TextboxWithSuggestions
+                                className="form-control"
                                 editorState={this.props.item.description}
                                 onChange={this.props.onDescriptionChange}
                             />

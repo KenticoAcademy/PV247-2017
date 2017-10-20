@@ -47,7 +47,14 @@ module.exports = {
                 use: javascriptLoaders
             },
             {
+                test: /plugin\.css$/,
+                loaders: [
+                    'style-loader', 'css-loader',
+                ],
+            },
+            {
                 test: /\.css$/,
+                exclude: /plugin\.css$/,
                 loader: [
                     {
                         loader: 'file-loader',
