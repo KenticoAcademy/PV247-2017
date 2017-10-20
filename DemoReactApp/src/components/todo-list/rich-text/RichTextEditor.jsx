@@ -7,8 +7,15 @@ const RichTextEditor = ({
     className,
     editorState,
     onChange,
+    onBoldClicked,
 }) => (
     <EditorBorder className={className}>
+        <button
+            className="btn btn-sm btn-default"
+            onClick={onBoldClicked}
+        >
+            Bold
+        </button>
         <Editor
             editorState={editorState}
             onChange={onChange}
@@ -20,6 +27,7 @@ RichTextEditor.propTypes = {
     className: PropTypes.string,
     editorState: PropTypes.instanceOf(EditorState).isRequired,
     onChange: PropTypes.func.isRequired,
+    onBoldClicked: PropTypes.func.isRequired,
 };
 
 export { RichTextEditor };
