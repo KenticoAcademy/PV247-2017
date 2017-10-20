@@ -15,6 +15,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.4",
+    "draft-js": "^0.10.3",
     "eslint": "^3.19.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.1.0",

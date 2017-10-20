@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormPane, ButtonRow } from './TodoListEditedItem.styles';
-import { ItemPane} from './TodoListItem.styles';
+import {
+    FormPane,
+    ButtonRow
+} from './TodoListEditedItem.styles';
+import { ItemPane } from './TodoListItem.styles';
+import { RichTextEditor } from '../../containers/todo-list/rich-text/RichTextEditor.jsx';
 
 export class TodoListEditedItem extends React.PureComponent {
     static propTypes = {
         item: PropTypes.shape({
             id: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
-            description: PropTypes.string
+            description: PropTypes.string,
         }).isRequired,
         submitDisabled: PropTypes.bool,
         submitButtonText: PropTypes.string.isRequired,
@@ -18,7 +22,7 @@ export class TodoListEditedItem extends React.PureComponent {
         onSubmit: PropTypes.func.isRequired
     };
 
-    componentDidMount(){
+    componentDidMount() {
         const textLength = this.titleInput.value.length;
 
         this.titleInput.focus();
@@ -50,12 +54,16 @@ export class TodoListEditedItem extends React.PureComponent {
                         </div>
                         <div className="form-group">
                             <label htmlFor="description">Description</label>
-                            <textarea className="form-control"
+                            {/*<textarea className="form-control"
                                       rows="3"
                                       id="description"
                                       value={this.props.item.description}
                                       onChange={this.props.onDescriptionChange}
                                       onKeyDown={this._handleEscKey}
+                            />*/}
+                            <RichTextEditor
+                                className="form-control"
+                                id="description"
                             />
                         </div>
                         <ButtonRow>
