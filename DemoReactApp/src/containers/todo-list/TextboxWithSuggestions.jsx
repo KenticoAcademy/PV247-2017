@@ -4,21 +4,22 @@ import Immutable from 'immutable';
 import { EditorState } from 'draft-js';
 import { defaultSuggestionsFilter } from 'draft-js-mention-plugin';
 import { TextboxWithSuggestions as TextboxWithSuggestionsComponent } from '../../components/todo-list/rich-text-with-plugins/TextboxWithSuggestions.jsx';
+import * as routes from '../../constants/routes';
 
 const mentions = Immutable.fromJS([
     {
         name: 'Pepa',
-        link: 'url',
+        link: routes.PROFILE,
         avatar: 'assets/no-profile.png',
     },
     {
         name: 'Karel',
-        link: 'url',
+        link: routes.PROFILE,
         avatar: 'assets/no-profile.png',
     },
     {
         name: 'Franta',
-        link: 'url',
+        link: routes.PROFILE,
         avatar: 'assets/no-profile.png',
     },
 ]);

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 import createMentionPlugin from 'draft-js-mention-plugin';
+import { MentionLink } from './MentionLink.jsx';
 import { EditorBorder } from '../rich-text/RichTextEditor.styles.jsx';
 
 import 'draft-js-mention-plugin/lib/plugin.css';
@@ -20,7 +21,9 @@ export class TextboxWithSuggestions extends React.PureComponent {
     constructor(props) {
         super(props);
 
-        this.mentionPlugin = createMentionPlugin();
+        this.mentionPlugin = createMentionPlugin({
+            mentionComponent: MentionLink
+        });
         this.plugins = [this.mentionPlugin];
     }
 
