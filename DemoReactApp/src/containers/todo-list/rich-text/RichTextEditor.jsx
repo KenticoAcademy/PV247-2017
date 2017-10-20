@@ -5,6 +5,7 @@ import {
     RichUtils,
 } from 'draft-js';
 import { RichTextEditor as RichTextEditorComponent } from '../../../components/todo-list/rich-text/RichTextEditor.jsx';
+import { TagDecorator } from '../../../utils/TagDecorator';
 
 export class RichTextEditor extends React.PureComponent {
     static propTypes = {
@@ -15,7 +16,7 @@ export class RichTextEditor extends React.PureComponent {
         super(props);
 
         this.state = {
-            editorState: EditorState.createEmpty()
+            editorState: EditorState.createEmpty(TagDecorator)
         };
     }
 
