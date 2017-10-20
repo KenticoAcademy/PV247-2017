@@ -4,4 +4,8 @@ import { uuid } from '../../utils/uuidGenerator';
 
 export const createNewItem = createNewItemFactory(uuid());
 
-export const saveItems = saveItemsFactory(localStorage.setItem);
+function setItemToStorage(key, value) {
+    localStorage.setItem(key, value);
+}
+
+export const saveItems = saveItemsFactory(setItemToStorage);
