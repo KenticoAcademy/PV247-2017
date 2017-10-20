@@ -8,6 +8,8 @@ const RichTextEditor = ({
     editorState,
     onChange,
     onBoldClicked,
+    onImageInsert,
+    getBlockRenderer,
 }) => (
     <EditorBorder className={className}>
         <button
@@ -16,9 +18,16 @@ const RichTextEditor = ({
         >
             Bold
         </button>
+        <button
+            className="btn btn-sm btn-default"
+            onClick={onImageInsert}
+        >
+            Insert image
+        </button>
         <Editor
             editorState={editorState}
             onChange={onChange}
+            blockRendererFn={getBlockRenderer}
         />
     </EditorBorder>
 );
@@ -28,6 +37,8 @@ RichTextEditor.propTypes = {
     editorState: PropTypes.instanceOf(EditorState).isRequired,
     onChange: PropTypes.func.isRequired,
     onBoldClicked: PropTypes.func.isRequired,
+    onImageInsert: PropTypes.func.isRequired,
+    getBlockRenderer: PropTypes.func.isRequired,
 };
 
 export { RichTextEditor };
