@@ -13,6 +13,9 @@ test('dispatches actions in the correct order', () => {
                     toJS: jest.fn()
                 },
                 byId: {
+                    mapEntries: () => ({
+                        toJS: jest.fn()
+                    }),
                     toJS: jest.fn()
                 }
             }
