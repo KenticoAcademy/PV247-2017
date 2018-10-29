@@ -20,11 +20,11 @@ export const authenticateUser = (destinationLocation) =>
         dispatch(startAuthentication());
 
         return fetchAuthToken(USER_EMAIL)
-            .then((token) => {
-                dispatch(receiveValidToken(token));
+            .then((tokenResponse) => {
+                dispatch(receiveValidToken(tokenResponse.token));
                 dispatch(push(destinationLocation));
 
-                localStorage.setItem(keys.SHARED_TOKEN, JSON.stringify(token));
+                localStorage.setItem(keys.SHARED_TOKEN, JSON.stringify(tokenResponse));
                 localStorage.setItem(keys.SHARED_TOKEN_TIMESTAMP, JSON.stringify(new Date().getTime()));
             })
             .catch((error) => {

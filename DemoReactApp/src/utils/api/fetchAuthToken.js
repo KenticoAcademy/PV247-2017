@@ -9,6 +9,6 @@ export const fetchAuthToken = (userEmail) => fetch(
             'Content-Type': 'application/json',
             'Accept': 'application/json',
         },
-        body: JSON.stringify(userEmail)
+        body: JSON.stringify({ email: userEmail })
     })
     .then(validateResponse);
